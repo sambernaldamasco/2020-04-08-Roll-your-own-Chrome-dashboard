@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const TodoForm = () => {
+const TodoForm = (props) => {
 	const [title, setTitle] = useState('');
 	const [description, setDescription] = useState('');
 	const [status, setStatus] = useState('');
@@ -16,6 +16,7 @@ const TodoForm = () => {
 		};
 
 		console.log(task);
+		props.addNewTask(task);
 	};
 
 	return (
