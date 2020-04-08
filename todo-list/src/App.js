@@ -66,18 +66,27 @@ function App() {
 		<div className="App">
 			<TodoForm addNewTask={addNewTask} />
 
-			<h1>to do</h1>
-			<TodoList tasks={todo} removeTask={removeTask} moveTask={moveTask} />
-
-			<h1>in progress</h1>
-			<TodoList
-				tasks={inProgress}
-				removeTask={removeTask}
-				moveTask={moveTask}
-			/>
-
-			<h1>done</h1>
-			<TodoList tasks={done} removeTask={removeTask} moveTask={moveTask} />
+			<div class="columns">
+				<div class="column">
+					{' '}
+					<h1>to do</h1>
+					<TodoList tasks={todo} removeTask={removeTask} moveTask={moveTask} />
+				</div>
+				<div class="column">
+					{' '}
+					<h1>in progress</h1>
+					<TodoList
+						tasks={inProgress}
+						removeTask={removeTask}
+						moveTask={moveTask}
+					/>
+				</div>
+				<div class="column">
+					{' '}
+					<h1>done</h1>
+					<TodoList tasks={done} removeTask={removeTask} moveTask={moveTask} />
+				</div>
+			</div>
 		</div>
 	);
 }

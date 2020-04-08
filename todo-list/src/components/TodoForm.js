@@ -20,16 +20,21 @@ const TodoForm = (props) => {
 	};
 
 	return (
-		<>
+		<div className="container">
 			<form onSubmit={handleSubmit}>
-				<label>
-					title:
-					<input
-						type="text"
-						value={title}
-						onChange={(e) => setTitle(e.target.value)}
-					/>
-				</label>
+				<div className="field">
+					<label class="label">
+						title:
+						<div className="control">
+							<input
+								type="text"
+								value={title}
+								onChange={(e) => setTitle(e.target.value)}
+								className="input"
+							/>
+						</div>
+					</label>
+				</div>
 
 				<label>
 					description:
@@ -65,7 +70,7 @@ const TodoForm = (props) => {
 
 				<input type="submit" value="add new" />
 			</form>
-		</>
+		</div>
 	);
 };
 
