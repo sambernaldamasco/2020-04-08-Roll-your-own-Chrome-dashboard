@@ -36,31 +36,48 @@ function App() {
 				setInProgress(inProgressCopy);
 				break;
 			case 'done':
-				const doneCopy = [...doneCopy];
+				const doneCopy = [...done];
 				doneCopy.splice(index, 1);
 				setDone(doneCopy);
 				break;
 		}
 	};
-	// const moveTask = (action, task, index) => {
-	// 	switch (action) {
-	// 		case 'inrogress':
-	// 			setInProgress((inProgress) => [...inProgress, task]);
-	// 	}
-	// };
+	const moveTask = (action, task, index) => {
+		switch (action) {
+			case 'todo':
+				removeTask(task, index);
+				task.status = 'todo';
+				setTodo((todo) => [...todo, task]);
+				break;
+			case 'inProgress':
+				removeTask(task, index);
+				task.status = 'inProgress';
+				setInProgress((inProgress) => [...inProgress, task]);
+				break;
+			case 'done':
+				removeTask(task, index);
+				task.status = 'done';
+				setDone((done) => [...done, task]);
+				break;
+		}
+	};
 
 	return (
 		<div className="App">
 			<TodoForm addNewTask={addNewTask} />
 
 			<h1>to do</h1>
-			<TodoList tasks={todo} removeTask={removeTask} />
+			<TodoList tasks={todo} removeTask={removeTask} moveTask={moveTask} />
 
 			<h1>in progress</h1>
-			<TodoList tasks={inProgress} removeTask={removeTask} />
+			<TodoList
+				tasks={inProgress}
+				removeTask={removeTask}
+				moveTask={moveTask}
+			/>
 
 			<h1>done</h1>
-			<TodoList tasks={done} removeTask={removeTask} />
+			<TodoList tasks={done} removeTask={removeTask} moveTask={moveTask} />
 		</div>
 	);
 }
