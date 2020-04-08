@@ -36,39 +36,48 @@ const TodoForm = (props) => {
 					</label>
 				</div>
 
-				<label>
-					description:
-					<input
-						type="text"
-						value={description}
-						onChange={(e) => setDescription(e.target.value)}
-					/>
-				</label>
+				<div className="field">
+					<label className="label">description:</label>
 
-				<label>
-					status:
-					<select value={status} onChange={(e) => setStatus(e.target.value)}>
-						<option> ------------ </option>
-						<option value="todo"> to do </option>
-						<option value="inProgress"> in progress </option>
-						<option value="done"> done </option>
-					</select>
-				</label>
+					<div className="control">
+						<input
+							type="text"
+							value={description}
+							onChange={(e) => setDescription(e.target.value)}
+							className="input"
+						/>
+					</div>
+				</div>
 
-				<label>
-					priority:
-					<select
-						value={priority}
-						onChange={(e) => setPriority(e.target.value)}
-					>
-						<option> ------------ </option>
-						<option value="low"> low </option>
-						<option value="medium"> medium </option>
-						<option value="high"> high </option>
-					</select>
-				</label>
+				<div className="field">
+					<label className="label">status:</label>
 
-				<input type="submit" value="add new" />
+					<div className="select">
+						<select value={status} onChange={(e) => setStatus(e.target.value)}>
+							<option> ------------ </option>
+							<option value="todo"> to do </option>
+							<option value="inProgress"> in progress </option>
+							<option value="done"> done </option>
+						</select>
+					</div>
+				</div>
+
+				<div className="field">
+					<label className="label">priority:</label>
+					<div className="select">
+						<select
+							value={priority}
+							onChange={(e) => setPriority(e.target.value)}
+						>
+							<option> ------------ </option>
+							<option value="low"> low </option>
+							<option value="medium"> medium </option>
+							<option value="high"> high </option>
+						</select>
+					</div>
+				</div>
+
+				<input className="button" type="submit" value="add new" />
 			</form>
 		</div>
 	);

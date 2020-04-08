@@ -8,17 +8,23 @@ function App() {
 	const [todo, setTodo] = useState([]);
 	const [inProgress, setInProgress] = useState([]);
 	const [done, setDone] = useState([]);
+	const [addNew, setAddNew] = useState(false);
 
 	const addNewTask = (task) => {
 		switch (task.status) {
 			case 'todo':
 				setTodo((todo) => [...todo, task]);
+				setAddNew(false);
 				break;
 			case 'inProgress':
 				setInProgress((inProgress) => [...inProgress, task]);
+				setAddNew(false);
+
 				break;
 			case 'done':
 				setDone((done) => [...done, task]);
+				setAddNew(false);
+
 				break;
 		}
 	};
@@ -64,7 +70,14 @@ function App() {
 
 	return (
 		<div className="App">
-			<TodoForm addNewTask={addNewTask} />
+			{addNew ? (
+				<TodoForm addNewTask={addNewTask} />
+			) : (
+				<button className="button" onClick={() => setAddNew(true)}>
+					{' '}
+					add new task{' '}
+				</button>
+			)}
 
 			<div class="columns">
 				<div class="column">

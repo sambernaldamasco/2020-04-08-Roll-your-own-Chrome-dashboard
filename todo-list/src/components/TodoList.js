@@ -9,19 +9,28 @@ const TodoList = (props) => {
 						<h2> {task.title}</h2>
 						<p> {task.description}</p>
 						<h4> {task.priority}</h4>
-						<button onClick={() => props.removeTask(task, index)}>
+						<button
+							className="button"
+							onClick={() => props.removeTask(task, index)}
+						>
 							remove task
 						</button>
 
 						{task.status === 'todo' ? (
-							<button onClick={() => props.moveTask('inProgress', task, index)}>
+							<button
+								className="button"
+								onClick={() => props.moveTask('inProgress', task, index)}
+							>
 								{' '}
 								In Progress{' '}
 							</button>
 						) : null}
 
 						{task.status === 'inProgress' ? (
-							<button onClick={() => props.moveTask('done', task, index)}>
+							<button
+								className="button"
+								onClick={() => props.moveTask('done', task, index)}
+							>
 								{' '}
 								done{' '}
 							</button>
