@@ -45,7 +45,7 @@ const TodoForm = (props) => {
 					<select value={status} onChange={(e) => setStatus(e.target.value)}>
 						<option> ------------ </option>
 						<option value="todo"> to do </option>
-						<option value="in progress"> in progress </option>
+						<option value="inProgress"> in progress </option>
 						<option value="done"> done </option>
 					</select>
 				</label>
